@@ -1,0 +1,61 @@
+{% extends 'app/main.html' %}
+{% block content %}
+{% include 'app/status.html' %}
+
+<div class="container">
+    <div class="row">
+        <!-- Customer List -->
+        <div class="col">
+            <div class="card card-body mb-3">
+                <h5> Customers   : <a href="{%url 'addcus'%}" class="btn btn-primary w-50">Add</a></h5><hr>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Place</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in customer %}
+                        <tr>
+                            <td><a href="{% url 'customer' i.id %}"" class="btn btn-outline-primary btn-sm" type="button">View</a></td>
+                            <td>{{ i.name }}</td>
+                            <td>{{ i.place }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Workers List -->
+        <div class="col">
+            <div class="card card-body mb-3">
+                <h5> Workers   : <a href="{%url 'addwor' %}" class="btn btn-primary w-50">Add</a></h5><hr>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Place</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in worker %}
+                        <tr>
+                            <td><a href="{% url 'worker' i.id %}" class="btn btn-outline-primary btn-sm">View</a></td>
+                            <td>{{ i.name }}</td>
+                            <td>{{ i.place }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+  
+
+
+{% endblock %}

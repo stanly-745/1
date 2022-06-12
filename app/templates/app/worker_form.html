@@ -1,0 +1,16 @@
+{% extends 'app/main.html' %}
+{% block content %}
+
+<div class="container">
+    <h1 class="display-4">Add Workers :</h1><hr>
+    <form action="" method="POST">
+        {%csrf_token%}
+        <table class="table">
+            {{form}}
+            
+        </table>
+        <input type="submit" class="btn btn-success">
+    </form>
+</div>
+
+{% endblock %}

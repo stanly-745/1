@@ -1,0 +1,32 @@
+{% extends 'app/main.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm">
+            <div class="card card-body mb-3">
+                <h5 class="display-5">Customer name: </h5><hr>
+                <h1 class="display-4">{{customer.name}}</h1><br>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="card card-body mb-3">
+                <h5>Customer detail:</h5><hr>
+                <p>Place : {{customer.place}}</p>
+                <p>Phone : {{customer.phone}}</p>
+                <p>Email : {{customer.email}}</p>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="card card-body mb-3">
+                <h5>Total order:</h5><hr><br>
+                <h1 style="text-align: center;">1</h1><br>
+            </div>
+        </div>
+    </div>
+<h1>Orders:</h1>
+</div>
+
+
+{% endblock %}
