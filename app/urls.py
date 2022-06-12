@@ -15,6 +15,7 @@ urlpatterns = [
     path('order_history',views.order_history,name='order-his'),
     path('update-order/<str:pk>/',views.update_order,name='up-order'),
     path('stockin',views.stock,name='stock'),
+    path('products',views.product,name='product'),
     path('update-stock/<str:pk>/',views.update_stock,name='up-stock'),
 
 ]

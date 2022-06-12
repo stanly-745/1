@@ -1,0 +1,24 @@
+{% extends 'app/main.html' %}
+{% block content %}
+
+<div class="container">
+    <h1 class="display-4">Products :<a href=" {% url 'addpro' %} " class="btn btn-success w-50">Add</a></h1>
+    <table class="table mt-3">
+        <thead>
+            <tr class="table-primary">
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in products %}
+            <tr>
+                <td>{{i.name}}</td>
+                <td>{{i.price}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

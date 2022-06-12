@@ -8,8 +8,9 @@ def home(request):
     pending_order=Order.objects.filter(status='Not-Delivered').count()
     customer=Customer.objects.all()
     worker=Worker.objects.all()
+    product=Product.objects.all().count()
     stock=Stock.objects.filter(quantity=0).count()
-    context={'customer':customer,'worker':worker,'pending_order':pending_order,'no_order':no_order,'stock':stock}
+    context={'product':product,'customer':customer,'worker':worker,'pending_order':pending_order,'no_order':no_order,'stock':stock}
     return render(request,'app/home.html',context)
 
 # customer page
@@ -56,6 +57,12 @@ def stock(request):
     stocks=Stock.objects.filter(quantity=0).all()
     context={'stock':stock,'stocks':stocks}
     return render(request,'app/stock.html',context)
+
+# product page
+def product(request):
+    products=Product.objects.all()
+    context={'products':products}
+    return render(request,'app/product.html',context)
 
 # update stock
 def update_stock(request,pk):
