@@ -7,7 +7,11 @@
         <!-- Customer List -->
         <div class="col">
             <div class="card card-body mb-3">
-                <h5> Customers   : <a href="{%url 'addcus'%}" class="btn btn-primary w-50">Add</a></h5><hr>
+                <h5> Customers   : 
+                    
+                    <a href="{%url 'addcus'%}" class="btn btn-primary w-50">Add</a>
+                    
+                </h5><hr>
                 <table class="table">
                     <thead>
                         <tr>
@@ -31,7 +35,11 @@
         <!-- Workers List -->
         <div class="col">
             <div class="card card-body mb-3">
-                <h5> Workers   : <a href="{%url 'addwor' %}" class="btn btn-primary w-50">Add</a></h5><hr>
+                <h5> Workers   :
+                    {% if request.user.is_staff %} 
+                    <a href="{%url 'addwor' %}" class="btn btn-primary w-50">Add</a>
+                    {% endif %}
+                </h5><hr>
                 <table class="table">
                     <thead>
                         <tr>
