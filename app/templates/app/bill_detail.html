@@ -1,0 +1,52 @@
+{% extends 'app/main.html' %}
+		{% block content %}
+		<a href="{{bill.add_product}}" class="btn btn-outline-success mx-5">Add Product</a><br><br>
+		<div class="container bg-white" id="printableArea">
+			
+			<h1>Customer Name: {{bill.customer_name}}</h1>
+			
+			<table class="table table-striped">
+				<br>
+				<thead class="table-dark">
+				<tr>
+					<th>Products</th>
+					<th>Quantity</th>
+					<th></th>
+					<th>Price</th>
+				</tr>
+			</thead>
+				{% for product in products %}
+				<tr>
+					<td><b> {{ product.billprod.name }}</b></td>
+					<td>{{ product.quantity }}</td>
+					<td></td>
+					<td>{{ product.billprod.price }}</td>
+				</tr>
+				{% endfor %}
+				<tr>
+					<td>
+						<b>Total Amount</b>
+					</td>
+					<td></td>
+					<td></td>
+					
+					<td>
+						{{bill.total_sum}}
+					</td>
+				</tr>
+			</table><br> 
+		</div>
+		<a href="{% url 'bill-add' %}" class="btn btn-info mx-5">New Bill</a>
+		<input type="button" onclick="printDiv('printableArea')" value="Print" class="btn btn-secondary">
+		<script>
+			function printDiv(divName) {
+			var printContents = document.getElementById(divName).innerHTML;
+			var originalContents= document.body.innerHTML;
+		
+			document.body.innerHTML= printContents;
+			window.print();
+		
+			document.body.innerHTML= originalContents;
+			}
+		</script>
+        {% endblock %}

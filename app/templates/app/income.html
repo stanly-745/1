@@ -1,0 +1,13 @@
+{% extends 'app/main.html' %}
+{% block content %}
+<h1 class="display-4">Income :<a href=" {% url 'addinc' %} " class="btn btn-success w-50">Add</a></h1>
+{% for i in income %}
+<hr>
+<ul class="list-group">
+    <li class="list-group-item list-group-item-secondary"> {{i.customer}} <h5></h5></li>
+    <li class="list-group-item">Amount : {{i.amount}} </li>
+</ul>
+
+{% endfor %}
+<hr>
+{% endblock %}

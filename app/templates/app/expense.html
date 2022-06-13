@@ -1,0 +1,15 @@
+{% extends 'app/main.html' %}
+{% block content %}
+<h1 class="display-4">Expense :<a href=" {% url 'addexp' %} " class="btn btn-success w-50">Add</a></h1>
+{% for i in expense %}
+<hr>
+<ul class="list-group">
+    <li class="list-group-item list-group-item-secondary"><h5> Date :{{i.date}}</h5></li>
+    <li class="list-group-item">Travel : {{i.travel}} </li>
+    <li class="list-group-item">Purchase : {{i.purchase}} </li>
+    <li class="list-group-item">Others : {{i.others}} </li>  
+</ul>
+
+{% endfor %}
+<hr>
+{% endblock %}
